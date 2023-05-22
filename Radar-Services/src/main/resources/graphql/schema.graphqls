@@ -1,0 +1,26 @@
+type Query{
+    radarList:[Radar],
+    getRadarById(id:Int):Radar,
+}
+type Mutation{
+    updateRadar(id:Int,radarRequestDTO:RadarRequestDTO):Radar,
+    addRadar(radarRequestDTO:RadarRequestDTO):RadarResponseDTO,
+    deleteRadar(id:Int):Boolean,
+}
+type Radar{
+    id:Int,
+    vitesseMaxRadar:Int,
+    longitude:Float,
+    latitude:Float
+}
+input RadarRequestDTO{
+    vitesseMaxRadar:Int,
+    longitude:Float,
+    latitude:Float
+}
+type RadarResponseDTO{
+    id:Int,
+    vitesseMaxRadar:Int,
+    longitude:Float,
+    latitude:Float
+}

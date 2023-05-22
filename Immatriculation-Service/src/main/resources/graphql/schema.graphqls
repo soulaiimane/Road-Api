@@ -1,0 +1,57 @@
+type Query{
+    vehiculeList:[Vehicule],
+    getVehiculeById(id:Int):Vehicule,
+    proprietaireList:[Proprietaire],
+    getProprietaireById(id:Int):Proprietaire
+}
+type Mutation{
+    updateVehicule(id:Int,vehiculeRequestDTO:VehiculeRequestDTO):Vehicule,
+    addVehicule(vehiculeRequestDTO:VehiculeRequestDTO):VehiculeResponseDTO,
+    deleteVehicule(id:Int):Boolean,
+    updateProprietaire(id:Int,proprietaireRequestDTO:ProprietaireRequestDTO):Proprietaire,
+    addProprietaire(proprietaireRequestDTO:ProprietaireRequestDTO):ProprietaireResponseDTO,
+    deleteProprietaire(id:Int):Boolean,
+}
+
+type Vehicule{
+    id:Int,
+    nom:String,
+    marque:String,
+    matricule:String,
+    puissFiscal:Int,
+    modele:String,
+    proprietaire:Proprietaire
+}
+type Proprietaire{
+    id:Int,
+    nom:String,
+    datecreat:String,
+    email:String,
+}
+input VehiculeRequestDTO{
+    nom:String,
+    marque:String,
+    puissFiscal:Int,
+    modele:String,
+}
+type VehiculeResponseDTO{
+    id:Int,
+    nom:String,
+    marque:String,
+    matricule:String,
+    puissFiscal:Int,
+    modele:String,
+    proprietaire:Proprietaire
+
+}
+input ProprietaireRequestDTO{
+    nom:String,
+    datecreat:String,
+    email:String,
+}
+type ProprietaireResponseDTO{
+    id:Int,
+    nom:String,
+    datecreat:String,
+    email:String,
+}

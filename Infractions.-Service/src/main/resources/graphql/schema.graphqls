@@ -1,0 +1,35 @@
+type Query{
+    infractionList:[Infraction],
+    getInfractionById(id:Int):Infraction,
+}
+type Mutation{
+    updateInfraction(id:Int,infractionRequestDTO:InfractionRequestDTO):Infraction,
+    addInfraction(infractionRequestDTO:InfractionRequestDTO):InfractionResponseDTO,
+    deleteInfractions(id:Int):Boolean,
+}
+
+type Infraction{
+    id:Int,
+    dateInfra:String,
+    radarID:Int,
+    vehicule:Int,
+    vitesseVehic:Int,
+    vitesseMaxRadar:Int,
+    infractionPrice:Float,
+}
+
+input InfractionRequestDTO{
+    radarID:Int,
+    vehicule:Int,
+    vitesseVehic:Int,
+    vitesseMaxRadar:Int,
+    infractionPrice:Float,
+}
+type InfractionResponseDTO{
+    id:Int,
+    radarID:Int,
+    vehicule:Int,
+    vitesseVehic:Int,
+    vitesseMaxRadar:Int,
+    infractionPrice:Float,
+}
